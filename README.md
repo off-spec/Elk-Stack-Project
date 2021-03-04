@@ -1,8 +1,9 @@
-# Elk-Stack-Project## Automated ELK Stack Deployment
+# Elk-Stack-Project
+## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+![Red-Team Network Diagram](Elkstack.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the install-elk.yml file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -26,40 +27,41 @@ Load balancing ensures that the application will be highly available, in additio
      --Load balancers aid in preventing DDOS attacks.  Load balancers require valid HTTP to pass onto the server. DDOS attacks are usually at the TCP level and they are usually invalid data, so if the load balancer gets invalid data it'll send back an error.  If the DDOS attack has valid HTTP it's going to load balance it between the servers mitigating the risk of getting overloaded.  If the functionality is built in the LB could possible circuit break if it knows that a service is overloaded, preventing anymore requests going to a server until the server says it's available again. 
 
   -What is the advantage of a jump box?
-     --
+     --A jump box provides separation between two networks and controls access to the remote network. Acting as the single entry point to bridge two networks it also logs all access requests which can also be monitored for malicious activity.
   
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the event logs and system metrics.
+-Filebeat collects and centralizes logs and files, which can then be used for analytics and devOps monitoring.
+-Metricbeats records system and service statistics which can then be used to monitor performance.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name     | Function   | IP Address | Operating System |
+|----------|------------|------------|------------------|
+| Jump-Box | Gateway    | 10.0.0.4   | Ubuntu 18.04     |
+| Web-1    | Web Server | 10.0.0.5   | Ubuntu 18.04     |
+| Web-2    | Web Server | 10.0.0.6   | Ubuntu 18.04     |
+| Elk      | Log Server | 10.2.0.4   | Ubuntu 18.04     |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the load balancer machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: 
+- Whitelisted IP: Personal IP
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by the jump-box-provisioner.
+- It can be accessed via the web browser from my personal IP through 5601, it can also be accessed through the jump-box-provisioner. 
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name          | Publicly Accessible | Allowed IP Address          |
+|---------------|---------------------|-----------------------------|
+| Load Balancer | Yes                 | Personal                    |
+| Jump-Box      | Yes                 | Personal                    |
+| Web-1         | No                  | 10.0.0.4                    |
+| Web-2         | No                  | 10.0.0.4                    |
+| Elk           | Yes                 | 10.0.0.4,10.0.0.5, 10.0.0.6 |
 
 ### Elk Configuration
 
@@ -73,14 +75,16 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output](elk_docker.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Web-1 10.0.0.5
+  Web-2 10.0.0.6
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeat
+  Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
