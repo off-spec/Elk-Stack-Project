@@ -103,7 +103,7 @@ SSH into the control node and follow the steps below:
 - Update the install-elk.yml file to include the IP's of the VM's .
 - Run the playbook, and navigate to http://<elk-IP>:5601/app/kibana to check that the installation worked as expected.
 
-![kibana](Images\kibana.PNG)
+![kibana](Images/kibana.PNG)
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
