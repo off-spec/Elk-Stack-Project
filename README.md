@@ -3,7 +3,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![Red-Team Network Diagram](Images/Elkstack.png)
+![Red-Team Network Diagram](Diagrams/Elkstack.png)
 
 
 
@@ -68,7 +68,7 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- This is advantageous because 
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
@@ -79,7 +79,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/elk_docker.PNG)
+![TODO: Update the path with the name of your screenshot of docker ps output](Diagrams/elk_docker.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -110,11 +110,11 @@ SSH into the control node and follow the steps below:
 - Update the install-elk.yml file to include the IP's of the VM's .
 - Run the playbook, and navigate to http://<elk-IP>:5601/app/kibana to check that the installation worked as expected.
 
-![kibana](Images/kibana.PNG)
+![kibana](Diagrams/kibana.PNG)
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+-Filebeat-install.yml should be saved to /etc/filebeat/ and run on each vm that will be monitored.
+- Add the IP of each machine to the /etc/ansible/hosts file.
 - _Which URL do you navigate to in order to check that the ELK server is running?
    --http://<elk-IP>:5601/app/kibana
 
