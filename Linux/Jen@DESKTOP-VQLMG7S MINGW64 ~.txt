@@ -1,0 +1,205 @@
+Jen@DESKTOP-VQLMG7S MINGW64 ~
+$ history
+    1  ssh-keygen
+    2  cd /c/users/jen/.ssh/
+    3  cat id_rsa.pub
+    4  ssh sysadmin
+    5  ssh sysadmin@98.200.235.250
+    6  ssh azureuser@98.200.235.250
+    7  cd /c/users/jen
+    8  ls
+    9  cd /.ssh
+   10  cd /c/users/jen/.ssh
+   11  ls
+   12  cat id_rsa.pub
+   13  clear
+   14  ssh sysadmin@98.200.235.250
+   15  ssh sysadmin@40.87.9.26
+   16  ssh sysadmin@40.87.9.26
+   17  clear
+   18  cd
+   19  sudo docker container list -a
+   20  docker container list -a
+   21  clear
+   23  ssh sysadmin@40.87.9.26
+   24  nano install-docker.yml
+   25  exit
+   26  nano install-docker.yml
+   30  cd /c/users/jen/.ssh
+   31  ls
+   32  cat id_rsa.pub
+   33  sudo docker container list -a
+   34  ssh @40.87.9.26
+   35  sudo docker container list -a
+   36  clear
+   38  sudo docker container list -a
+   39  ssh azadmin@40.87.9.26
+   40  ssh sysadmin@40.87.9.26
+   41  ssh sysadmin@40.87.9.26
+   42  ansible-playbook install-elk.yml
+   43  nano install-elk.yml
+   44  ###################### Metricbeat Configuration Example #######################
+   45  # This file is an example configuration file highlighting only the most common
+   46  # options. The metricbeat.reference.yml file from the same directory contains all the
+   47  # supported options with more comments. You can use it as a reference.
+   48  #
+   49  # You can find the full configuration reference here:
+   50  # https://www.elastic.co/guide/en/beats/metricbeat/index.html
+   51  #==========================  Modules configuration ============================
+   52  metricbeat.config.modules:
+   53    # Glob pattern for configuration loading
+   54    path: ${path.config}/modules.d/*.yml
+   55    # Set to true to enable config reloading
+   56    reload.enabled: false
+   57    # Period on which files under path should be checked for changes
+   58    #reload.period: 10s
+   59  #==================== Elasticsearch template setting ==========================
+   60  setup.template.settings:
+   61    index.number_of_shards: 1
+   62    index.codec: best_compression
+   63    #_source.enabled: false
+   64  #================================ General =====================================
+   65  # The name of the shipper that publishes the network data. It can be used to group
+   66  # all the transactions sent by a single shipper in the web interface.
+   67  #name:
+   68  # The tags of the shipper are included in their own field with each
+   69  # transaction published.
+   70  #tags: ["service-X", "web-tier"]
+   71  # Optional fields that you can specify to add additional information to the
+   72  # output.
+   73  #fields:
+   74  #  env: staging
+   75  #============================== Dashboards =====================================
+   76  # These settings control loading the sample dashboards to the Kibana index. Loading
+   77  # the dashboards is disabled by default and can be enabled either by setting the
+   78  # options here or by using the `setup` command.
+   79  #setup.dashboards.enabled: false
+   80  # The URL from where to download the dashboards archive. By default this URL
+   81  # has a value which is computed based on the Beat name and version. For released
+   82  # versions, this URL points to the dashboard archive on the artifacts.elastic.co
+   83  # website.
+   84  #setup.dashboards.url:
+   85  #============================== Kibana =====================================
+   86  # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+   87  # This requires a Kibana endpoint configuration.
+   88  setup.kibana:
+   89    host: "10.0.0.12:5601"
+   90    # Kibana Host
+   91    # Scheme and port can be left out and will be set to the default (http and 5601)
+   92    # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+   93    # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+   94    #host: "localhost:5601"
+   95    # Kibana Space ID
+   96    # ID of the Kibana Space into which the dashboards should be loaded. By default,
+   97    # the Default Space will be used.
+   98    #space.id:
+   99  #============================= Elastic Cloud ==================================
+  100  # These settings simplify using Metricbeat with the Elastic Cloud (https://cloud.elastic.co/).
+  101  # The cloud.id setting overwrites the `output.elasticsearch.hosts` and
+  102  # `setup.kibana.host` options.
+  103  # You can find the `cloud.id` in the Elastic Cloud web UI.
+  104  #cloud.id:
+  105  # The cloud.auth setting overwrites the `output.elasticsearch.username` and
+  106  # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
+  107  #cloud.auth:
+  108  #================================ Outputs =====================================
+  109  # Configure what output to use when sending the data collected by the beat.
+  110  #-------------------------- Elasticsearch output ------------------------------
+  111  output.elasticsearch:
+  112    # TODO: Change the hosts IP address to the IP address of your ELK server
+  113    # TODO: Change password from `changem` to the password you created
+  114    hosts: ["10.0.0.12:9200"]
+  115    username: "elastic"
+  116    password: "changeme"
+  117  #----------------------------- Logstash output --------------------------------
+  118  #output.logstash:
+  119    # The Logstash hosts
+  120    #hosts: ["localhost:5044"]
+  121    # Optional SSL. By default is off.
+  122    # List of root certificates for HTTPS server verifications
+  123    #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  124    # Certificate for SSL client authentication
+  125    #ssl.certificate: "/etc/pki/client/cert.pem"
+  126    # Client Certificate Key
+  127    #ssl.key: "/etc/pki/client/cert.key"
+  128  #================================ Processors =====================================
+  129  # Configure processors to enhance or manipulate events generated by the beat.
+  130  processors:
+  131    - add_host_metadata: ~
+  132    - add_cloud_metadata: ~
+  133  #================================ Logging =====================================
+  134  # Sets log level. The default log level is info.
+  135  # Available log levels are: error, warning, info, debug
+  136  #logging.level: debug
+  137  # At debug level, you can selectively enable logging only for some components.
+  138  # To enable all selectors use ["*"]. Examples of other selectors are "beat",
+  139  # "publish", "service".
+  140  #logging.selectors: ["*"]
+  141  #============================== X-Pack Monitoring ===============================
+  142  # metricbeat can export internal metrics to a central Elasticsearch monitoring
+  143  # cluster.  This requires xpack monitoring to be enabled in Elasticsearch.  The
+  144  # reporting is disabled by default.
+  145  # Set to true to enable the monitoring reporter.
+  146  #monitoring.enabled: false
+  147  # Sets the UUID of the Elasticsearch cluster under which monitoring data for this
+  148  # Metricbeat instance will appear in the Stack Monitoring UI. If output.elasticsearch
+  149  # is enabled, the UUID is derived from the Elasticsearch cluster referenced by output.elasticsearch.
+  150  #monitoring.cluster_uuid:
+  151  # Uncomment to send the metrics to Elasticsearch. Most settings from the
+  152  # Elasticsearch output are accepted here as well.
+  153  # Note that the settings should point to your Elasticsearch *monitoring* cluster.
+  154  # Any setting that is not set is automatically inherited from the Elasticsearch
+  155  # output configuration, so if you have the Elasticsearch output configured such
+  156  # that it is pointing to your Elasticsearch monitoring cluster, you can simply
+  157  # uncomment the following line.
+  158  #monitoring.elasticsearch:
+  159  #================================= Migration ==================================
+  160  # This allows to enable 6.7 migration aliases
+  161  #migration.6_to_7.enabled: true
+  162  cd /etc
+  163  ls
+  164  cd ssh
+  165  ls
+  166  cd
+  167  ssh-keygen
+  168  cd /c/users/jen/.ssh/id_rsa
+  169  cd /c/users/jen/.ssh
+  170  ls
+  171  cat id_rsa
+  172  cd
+  173  ssh jen@web-2-10.0.0.9
+  174  wgettinyurl.com/14‐1‐‐setup‐script&&sudochmod+x14‐1‐‐setup‐script&&sudo./14‐1‐‐setup‐script
+  175  curl -X POST httpbin.org/anything
+  176  curl -X POST httpbin.org
+  177  curl https://httpbin.org/anything
+  178  curl https://httpbin.org/ -I
+  179  curl https://httpbin.org/anything -I
+  180  curl -X POST -d '{"Developer":"Andrew"}' https://httpbin.org/anything
+  181  curl -X POST "https://httpbin.org/anything?EmployeeDirectroy=frontend"
+  182  curl -X POST -d '{"Developer":"Andrew"}' -H "Content-Type: application/json" https://httpbin.org/anything
+  183  ssh-keygen
+  184  cd c/users/jen/.ssh/
+  185  cd c/users/jen/.ssh
+  186  cd /c/users/jen/.ssh
+  187  ls
+  188  cat id_rsa.pub
+  189  ssh azadmin@52.255.154.67
+  190  ssh azadmin@52.147.204.201
+  191  git config --global user.email "djinnjen@outlook.com"
+  192  git config --global user.name "Jennifer Henley"
+  193  git clone https://github.com/off-spec/Elk-Stack-Project.git
+  194  cd c:/c:/
+  195  cd c:/
+  196  cd C:\Users\Jen\Elk-Project\Elk-Stack-Project
+  197  cd C:\Users\Jen\Elk-Projectls
+  198  ls
+  199  git add.
+  200  git add .
+  201  git commit-m "First commit"
+  202  git commit -m "First commit"
+  203  git push
+  206  ls
+  207  git push
+  208  git commit -m "First Commit"
+  209  exit
+  211  history
