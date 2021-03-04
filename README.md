@@ -91,16 +91,19 @@ We have installed the following Beats on these machines:
   Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat: 
-  Metricbeat: Collects
+- Filebeat: Collects log files.
+  Metricbeat: Collects system and service analytics.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the install-elk.yml file to /etc/ansible/ directory.
+  
+- Update the install-elk.yml file to include the IP's of the VM's .
+- Run the playbook, and navigate to http://<elk-IP>:5601/app/kibana to check that the installation worked as expected.
+
+![kibana](Images/kibana.png)
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
@@ -109,3 +112,6 @@ _TODO: Answer the following questions to fill in the blanks:_
    --http://<elk-IP>:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat‐config.yml
+
