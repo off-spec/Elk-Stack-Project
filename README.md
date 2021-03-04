@@ -88,7 +88,14 @@ This ELK server is configured to monitor the following machines:
 
 We have installed the following Beats on these machines:
 - Filebeat
-  Metricbeat
+ 
+  ![Filebeat-Install](Ansible/FilebeatInstall.yml)
+
+- Metricbeat
+ 
+   ![Metricbeat-Install](Ansible/MetricbeatConfig.yml)
+ 
+  ![Metricbeat-Install](Ansible/MetricbeatInstall.yml)
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat: Collects log files.
