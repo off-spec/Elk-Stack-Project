@@ -90,7 +90,7 @@ The following screenshot displays the result of running `docker ps` after succes
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - Web-1 10.0.0.5
-  Web-2 10.0.0.6
+-  Web-2 10.0.0.6
 
 We have installed the following Beats on these machines:
 - Filebeat
@@ -121,7 +121,7 @@ SSH into the control node and follow the steps below:
 - Filebeat-install.yml should be saved to /etc/filebeat/ and run on each vm that will be monitored.
 - Add the IP of each machine to the /etc/ansible/hosts file.
 - _Which URL do you navigate to in order to check that the ELK server is running?
-- Kibana URL: http://:5601/app/kibana
+  - Kibana URL: http://:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
