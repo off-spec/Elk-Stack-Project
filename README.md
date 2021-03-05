@@ -121,7 +121,8 @@ SSH into the control node and follow the steps below:
 - Filebeat-install.yml should be saved to /etc/filebeat/ and run on each vm that will be monitored.
 - Add the IP of each machine to the /etc/ansible/hosts file.
 - _Which URL do you navigate to in order to check that the ELK server is running?
-  - Kibana URL: http://:5601/app/kibana
+
+Kibana URL: http://:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
