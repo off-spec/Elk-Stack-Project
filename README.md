@@ -25,16 +25,16 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- -What aspect of security do load balancers protect?
-     --Load balancers aid in preventing DDOS attacks.  Load balancers require valid HTTP to pass onto the server. DDOS attacks are usually at the TCP level and they are usually invalid data, so if the load balancer gets invalid data it'll send back an error.  If the DDOS attack has valid HTTP it's going to load balance it between the servers mitigating the risk of getting overloaded.  If the functionality is built in the LB could possible circuit break if it knows that a service is overloaded, preventing anymore requests going to a server until the server says it's available again. 
+- What aspect of security do load balancers protect?
+     - Load balancers aid in preventing DDOS attacks.  Load balancers require valid HTTP to pass onto the server. DDOS attacks are usually at the TCP level and they are usually invalid data, so if the load balancer gets invalid data it'll send back an error.  If the DDOS attack has valid HTTP it's going to load balance it between the servers mitigating the risk of getting overloaded.  If the functionality is built in the LB could possible circuit break if it knows that a service is overloaded, preventing anymore requests going to a server until the server says it's available again. 
 
-  -What is the advantage of a jump box?
-     --A jump box provides separation between two networks and controls access to the remote network. Acting as the single entry point to bridge two networks it also logs all access requests which can also be monitored for malicious activity.
+- What is the advantage of a jump box?
+     - A jump box provides separation between two networks and controls access to the remote network. Acting as the single entry point to bridge two networks it also logs all access requests which can also be monitored for malicious activity.
   
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the event logs and system metrics.
--Filebeat collects and centralizes logs and files, which can then be used for analytics and devOps monitoring.
--Metricbeats records system and service statistics which can then be used to monitor performance.
+- Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the event logs and system metrics.
+     - Filebeat collects and centralizes logs and files, which can then be used for analytics and devOps monitoring.
+     - Metricbeats records system and service statistics which can then be used to monitor performance.
 
 The configuration details of each machine may be found below.
 
