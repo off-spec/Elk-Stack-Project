@@ -77,7 +77,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
   
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+
 - Install dockio.io
 - Install python3-pip and enables its docker module
 - Increases its virtual memory
@@ -101,7 +101,7 @@ We have installed the following Beats on these machines:
  
    ![Metricbeat-Install](Ansible/MetricbeatConfig.yml)
  
-  ![Metricbeat-Install](Ansible/MetricbeatInstall.yml)
+   ![Metricbeat-Install](Ansible/MetricbeatInstall.yml)
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat: Collects log files.
@@ -118,8 +118,7 @@ SSH into the control node and follow the steps below:
 
 ![kibana](Diagrams/kibana.PNG)
 
-_TODO: Answer the following questions to fill in the blanks:_
--Filebeat-install.yml should be saved to /etc/filebeat/ and run on each vm that will be monitored.
+- Filebeat-install.yml should be saved to /etc/filebeat/ and run on each vm that will be monitored.
 - Add the IP of each machine to the /etc/ansible/hosts file.
 - _Which URL do you navigate to in order to check that the ELK server is running?
    --http://<elk-IP>:5601/app/kibana
